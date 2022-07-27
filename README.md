@@ -18,4 +18,4 @@ Algorithms I: [Source Link](https://www.coursera.org/learn/algorithms-part2/)
 
 ## 3. Record
 
-![image-20220727095550351](assets/Grade1.png)![image-20220727095729256](assets/Grade2.png)
+<img src="assets/Grade1.png" alt="image-20220727095550351" style="zoom: 20%;" /><img src="assets/Grade2.png" alt="image-20220727095729256" style="zoom:20%;" />
