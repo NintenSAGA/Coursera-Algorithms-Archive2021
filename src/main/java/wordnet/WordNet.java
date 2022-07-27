@@ -6,6 +6,7 @@ import edu.princeton.cs.algs4.Topological;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Queue;
 
+import java.nio.file.Path;
 import java.util.HashMap;
 
 public class WordNet {
@@ -79,10 +80,5 @@ public class WordNet {
     // in a shortest ancestral path (defined below)
     public String sap(String nounA, String nounB) {
         return synSets[sap.ancestor(nounSubsets.get(nounA), nounSubsets.get(nounB))];
-    }
-
-    // do unit testing of this class
-    public static void main(String[] args) {
-        new WordNet("synsets6.txt", "hypernyms6InvalidTwoRoots.txt");
     }
 }

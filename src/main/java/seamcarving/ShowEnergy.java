@@ -13,17 +13,18 @@ package seamcarving;
 import edu.princeton.cs.algs4.Picture;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.nio.file.Path;
+
 public class ShowEnergy {
 
     public static void main(String[] args) {
-        Picture picture = new Picture("12x10.png");
+        Picture picture = new Picture(Path.of(ClassLoader.getSystemResource("seam_carving").getFile(), "12x10.png").toString());
         StdOut.printf("image is %d columns by %d rows\n", picture.width(), picture.height());
         picture.show();        
         SeamCarver sc = new SeamCarver(picture);
         
         StdOut.printf("Displaying energy calculated for each pixel.\n");
         SCUtility.showEnergy(sc);
-
     }
 
 }

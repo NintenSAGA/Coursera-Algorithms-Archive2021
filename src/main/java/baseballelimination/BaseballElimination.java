@@ -7,8 +7,12 @@ import edu.princeton.cs.algs4.FordFulkerson;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.io.File;
+import java.net.URL;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class BaseballElimination {
@@ -168,18 +172,28 @@ public class BaseballElimination {
     }
 
     public static void main(String[] args) {
-        BaseballElimination division = new BaseballElimination("teams4a.txt");
-        for (String team : division.teams()) {
-            if (division.isEliminated(team)) {
-                StdOut.print(team + " is eliminated by the subset R = { ");
-                for (String t : division.certificateOfElimination(team)) {
-                    StdOut.print(t + " ");
+        URL url = ClassLoader.getSystemResource("baseball_elimination");
+        assert url != null;
+        String dir = url.getFile();
+        File files = new File(dir);
+
+        In in = new In();
+        for (File file : Objects.requireNonNull(files.listFiles(x -> x.getName().endsWith(".txt")))) {
+            BaseballElimination division = new BaseballElimination(Path.of(dir, file.getName()).toString());
+            for (String team : division.teams()) {
+                if (division.isEliminated(team)) {
+                    StdOut.print(team + " is eliminated by the subset R = { ");
+                    for (String t : division.certificateOfElimination(team)) {
+                        StdOut.print(t + " ");
+                    }
+                    StdOut.println("}");
                 }
-                StdOut.println("}");
+                else {
+                    StdOut.println(team + " is not eliminated");
+                }
             }
-            else {
-                StdOut.println(team + " is not eliminated");
-            }
+            StdOut.println();
+            in.readLine();
         }
     }
 }

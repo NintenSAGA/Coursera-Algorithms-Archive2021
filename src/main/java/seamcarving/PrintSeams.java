@@ -35,6 +35,8 @@ package seamcarving;
 import edu.princeton.cs.algs4.Picture;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.nio.file.Path;
+
 public class PrintSeams {
     private static final boolean HORIZONTAL   = true;
     private static final boolean VERTICAL     = false;
@@ -62,7 +64,7 @@ public class PrintSeams {
     }
 
     public static void main(String[] args) {
-        String file = "6x5.png";
+        String file = Path.of(ClassLoader.getSystemResource("seam_carving").getFile(), "6x5.png").toString();
 
         Picture picture = new Picture(file);
         StdOut.printf("%s (%d-by-%d image)\n", file, picture.width(), picture.height());

@@ -15,18 +15,18 @@ import edu.princeton.cs.algs4.Picture;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Stopwatch;
 
+import java.nio.file.Path;
+
 public class ResizeDemo {
     public static void main(String[] args) {
-        String[] myArgs = new String[] {"WechatIMG539.jpeg", "300", "0"};
-
-        if (myArgs.length != 3) {
+        if (args.length != 3) {
             StdOut.println("Usage:\njava ResizeDemo [image filename] [num cols to remove] [num rows to remove]");
             return;
         }
 
-        Picture inputImg = new Picture(myArgs[0]);
-        int removeColumns = Integer.parseInt(myArgs[1]);
-        int removeRows = Integer.parseInt(myArgs[2]); 
+        Picture inputImg = new Picture(args[0]);
+        int removeColumns = Integer.parseInt(args[1]);
+        int removeRows = Integer.parseInt(args[2]);
 
         StdOut.printf("image is %d columns by %d rows\n", inputImg.width(), inputImg.height());
         SeamCarver sc = new SeamCarver(inputImg);

@@ -13,10 +13,12 @@ package seamcarving;
 import edu.princeton.cs.algs4.Picture;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.nio.file.Path;
+
 public class PrintEnergy {
 
     public static void main(String[] args) {
-        Picture picture = new Picture("3x4.png");
+        Picture picture = new Picture(Path.of(ClassLoader.getSystemResource("seam_carving").getFile(), "3x4.png").toString());
         StdOut.printf("image is %d pixels wide by %d pixels high.\n", picture.width(), picture.height());
         
         SeamCarver sc = new SeamCarver(picture);

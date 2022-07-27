@@ -39,6 +39,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.net.URL;
+import java.nio.file.Path;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 import java.util.Timer;
@@ -384,32 +386,36 @@ public class BoggleGame extends JFrame {
                     .addComponent(opponentPanel))
         );
 
+        URL url = ClassLoader.getSystemResource("boggle");
+        assert url != null;
+        String dir = url.getFile();
+
         // all words in shakespeare
-        In in1 = new In(new File("dictionary-shakespeare.txt"));
+        In in1 = new In(Path.of(dir, "dictionary-shakespeare.txt").toFile());
         shakespeareDictionary = new SET<String>();
         for (String s : in1.readAllStrings())
             shakespeareDictionary.add(s);
 
         // all words in shakespeare
-        In in2 = new In(new File("dictionary-nursery.txt"));
+        In in2 = new In(Path.of(dir, "dictionary-nursery.txt").toFile());
         nurseryDictionary = new SET<String>();
         for (String s : in2.readAllStrings())
             nurseryDictionary.add(s);
 
         // about 20K common words
-        In in3 = new In(new File("dictionary-common.txt"));
+        In in3 = new In(Path.of(dir, "dictionary-common.txt").toFile());
         commonDictionary = new SET<String>();
         for (String s : in3.readAllStrings())
             commonDictionary.add(s);
 
         // all words in Algorithms 4/e
-        In in4 = new In(new File("dictionary-algs4.txt"));
+        In in4 = new In(Path.of(dir, "dictionary-algs4.txt").toFile());
         algs4Dictionary = new SET<String>();
         for (String s : in4.readAllStrings())
             algs4Dictionary.add(s);
 
         // dictionary
-        In in = new In(new File("dictionary-yawl.txt"));
+        In in = new In(Path.of(dir, "dictionary-yawl.txt").toFile());
         String[] dictionary = in.readAllStrings();
 
         // create the Boggle solver with the given dictionary

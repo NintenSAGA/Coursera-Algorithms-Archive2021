@@ -7,6 +7,8 @@ import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.nio.file.Path;
+
 public class SAP {
     private final Digraph digraph;
 
@@ -87,7 +89,7 @@ public class SAP {
 
     // do unit testing of this class
     public static void main(String[] args) {
-        In in = new In("digraph-wordnet.txt");
+        In in = new In(Path.of(ClassLoader.getSystemResource("wordnet").getFile(), "digraph-wordnet.txt").toString());
         Digraph G = new Digraph(in);
         SAP sap = new SAP(G);
 

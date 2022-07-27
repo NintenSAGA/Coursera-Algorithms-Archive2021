@@ -29,16 +29,18 @@ package puzzle;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.nio.file.Path;
+
 public class PuzzleChecker {
 
     public static void main(String[] args) {
+        String dir = ClassLoader.getSystemResource("puzzle").getFile();
 
         // for each command-line argument
         for (int k = 32; k <= 50; k++) {
-
             // read in the board specified in the filename
             String filename = String.format("puzzle%02d.txt", k);
-            In in = new In(filename);
+            In in = new In(Path.of(dir, filename).toString());
             int n = in.readInt();
             int[][] tiles = new int[n][n];
             for (int i = 0; i < n; i++) {

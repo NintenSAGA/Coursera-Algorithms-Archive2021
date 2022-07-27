@@ -4,11 +4,13 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.util.Objects;
+
 public class SampleClient {
     public static void main(String[] args) {
-
         // read the n points from a file
-        In in = new In("./collinear/input100.txt");
+        String file = Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("collinear/rs1423.txt")).getFile();
+        In in = new In(file);
         int n = in.readInt();
         Point[] points = new Point[n];
         for (int i = 0; i < n; i++) {

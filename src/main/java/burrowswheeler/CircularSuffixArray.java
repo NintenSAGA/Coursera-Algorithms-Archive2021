@@ -1,4 +1,4 @@
-package burrowwheeler;
+package burrowswheeler;
 
 import java.util.Arrays;
 

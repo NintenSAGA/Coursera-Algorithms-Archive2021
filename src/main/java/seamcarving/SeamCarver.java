@@ -200,10 +200,4 @@ public class SeamCarver {
 
         isTransposed = !isTransposed;
     }
-
-    //  unit testing (optional)
-    public static void main(String[] args) {
-
-    }
-
 }
